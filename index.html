@@ -2,17 +2,50 @@
 	<head>
 		<title>Three.js Boilerplate</title>
 	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 	</head>
 	<body>
-		<div id="cursor"></div>
-		<div class="text-div">
-			<h2>Ludwig Van Beethoven</h2>
-			<p>(17 December 1770 – 26 March 1827) was a German composer and pianist. Beethoven remains one of the most admired composers in the history of Western music; his works rank amongst the most performed of the classical music repertoire. His works span the transition from the classical period to the romantic era in classical music. His career has conventionally been divided into early, middle, and late periods. </p>
+
+		
+		<div id="container" data-scroll-container>
+			<div id="cursor"></div>
+			<div class="text-div" data-scroll-section >
+				<h2  data-scroll data-scroll-speed="0.7">Ludwig Van Beethoven</h2>
+				<p data-scroll data-scroll-speed="-2">(17 December 1770 – 26 March 1827) was a German composer and pianist. Beethoven remains one of the most admired composers in the history of Western music; his works rank amongst the most performed of the classical music repertoire. His works span the transition from the classical period to the romantic era in classical music. His career has conventionally been divided into early, middle, and late periods. </p>
+			</div>
+			<div class="text-div link" data-scroll-section >
+		<h2 class="deafness" data-scroll data-scroll-speed="0.7">Deafness</h2>
+			</div>
+
+
+			<div class="text-div early-years" data-scroll-section >
+				<h2  data-scroll data-scroll-speed="0.7">Early Years</h2>
+				<p data-scroll data-scroll-speed="-2">His first public performance in Vienna was in March 1795, where he first performed one of his piano concertos. Shortly after this performance, he arranged for the publication of the first of his compositions to which he assigned an opus number, the three piano trios, Opus 1. These works were dedicated to his patron Prince Lichnowsky, and were a financial success; Beethoven's profits were nearly sufficient to cover his living expenses for a year. In 1799 Beethoven participated in (and won) a notorious piano 'duel' at the home of Baron Raimund Wetzlar (a former patron of Mozart) against the virtuoso Joseph Wölfl; and in the following year he similarly triumphed against Daniel Steibelt at the salon of Count Moritz von Fries. Beethoven's eighth piano sonata the "Pathétique" (Op. 13), published in 1799 is described by the musicologist Barry Cooper as "surpass[ing] any of his previous compositions, in strength of character, depth of emotion, level of originality, and ingenuity of motivic and tonal manipulation". </p>
+			</div>
+	
+	
+			<div class="next-page next1" data-scroll-section></div>
+			<div class="next-page next2" data-scroll-section></div>
+
+	<!-- <div class="canvas-parent" data-scroll-section>
+			<canvas id="canvas"></canvas>
+		</div> -->
+
+	
+			<canvas id="canvas" data-scroll-section></canvas>
+			<canvas id="canvas2" data-scroll-section></canvas>
+		
+		
+			
 		</div>
+	
+		
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js
 		"></script>
 		<script src="./assets/OrbitControls.js"></script>
 		<script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js
 
 
@@ -21,8 +54,16 @@
 		<!-- <script src="./examples/3d-obj-loader/assets/MTLLoader.js"></script> -->
 
 		<script src="./scripts.js"></script>
+		<script src="./scripts2.js"></script>
+	
+	
 		<script>
-			
+			const scroller = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true,
+			multiplier: 0.5,
+			lerp: 0.1
+		})
 
         var cursorRect = cursor.getBoundingClientRect();
 
@@ -32,12 +73,33 @@
             var xPos = e.pageX - cursorRect.width / 2;
             var yPos = e.pageY - cursorRect.height / 2;
 
-            console.log(xPos + " " + yPos);
+            // console.log(xPos + " " + yPos);
 
             cursor.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+			// document.getElementById('cursor').style.left = curX - 30 + 'px';
+			// document.getElementById('cursor').style.top = curY - 30 + 'px';
+			
         }
 
 
+	let deafness = document.querySelector(".deafness");
+	console.log(deafness)
+
+	deafness.addEventListener("click", () => {
+		console.log(deafness)
+	})
+		// document.body.addEventListener("mousemove", function(e) {
+
+		// 	var curX = e.clientX;
+		// 	var curY = e.clientY;
+
+		// 	document.getElementById('mouse').style.left = curX - 10 + 'px';
+		// 	document.getElementById('mouse').style.top = curY - 10 + 'px';
+		// 	});
+
+			// window.setTimeout(() => {
+			// 	scroller.init()
+			// }, 200);
 
 		</script>
 	</body>

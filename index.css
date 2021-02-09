@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +10,7 @@
 
 body {
   background-color: #e6dddd;
-  overflow: hidden;
+  overflow-x: hidden;
   cursor: none;
 }
 
@@ -16,20 +18,39 @@ body span {
   display: inline-block;
 }
 
-canvas {
+#canvas {
   cursor: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#canvas2 {
+  top: 1400px;
+  left: 50px;
+  cursor: none;
+  position: absolute;
+  z-index: 10;
+}
+
+.canvas-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .text-div {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 50px;
+  top: 250px;
   cursor: none;
+  z-index: 11;
 }
 
 .text-div h2 {
-  font-size: 80px;
-  font-family: monospace;
+  font-size: 50px;
+  font-family: 'Merriweather', serif;
   pointer-events: none;
   color: white;
   cursor: none;
@@ -38,7 +59,7 @@ canvas {
 .text-div p {
   position: relative;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-left: 80px;
   color: white;
   -webkit-transition: all ease .6s;
@@ -47,76 +68,6 @@ canvas {
   width: 600px;
   margin-top: 50px;
   cursor: none;
-}
-
-.bed-info {
-  position: absolute;
-  left: 500px;
-  top: 200px;
-  margin-left: 50px;
-}
-
-.bed-info h2 {
-  position: relative;
-  font-size: 50px;
-  font-family: monospace;
-  opacity: 0;
-  -webkit-transition: all ease .6s;
-  transition: all ease .6s;
-  z-index: 5;
-}
-
-.bed-info-bg {
-  position: absolute;
-  left: 500px;
-  top: 200px;
-  opacity: 0;
-  background-color: white;
-  -webkit-transition: all ease .6s;
-  transition: all ease .6s;
-  height: 500px;
-  width: 500px;
-}
-
-.laptop-info {
-  position: absolute;
-  left: 200px;
-  top: 200px;
-  margin-left: 50px;
-}
-
-.laptop-info h2 {
-  position: relative;
-  font-size: 50px;
-  font-family: monospace;
-  opacity: 0;
-  -webkit-transition: all ease .6s;
-  transition: all ease .6s;
-  z-index: 5;
-}
-
-.laptop-info p {
-  position: relative;
-  font-size: 20px;
-  font-family: monospace;
-  opacity: 0;
-  -webkit-transition: all ease .6s;
-  transition: all ease .6s;
-  z-index: 5;
-  width: 400px;
-  margin-top: 50px;
-}
-
-.laptop-info-bg {
-  position: absolute;
-  left: 200px;
-  top: 200px;
-  opacity: 0;
-  background-color: cyan;
-  -webkit-transition: all ease .6s;
-  transition: all ease .6s;
-  height: 500px;
-  width: 500px;
 }
 
 #cursor {
@@ -130,5 +81,56 @@ canvas {
           box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
   pointer-events: none;
   cursor: none;
+  -webkit-transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s all;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s all;
+  z-index: 200;
+}
+
+.next-page {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  z-index: 200;
+  opacity: 0.3 !important;
+  z-index: 9;
+  pointer-events: none !important;
+}
+
+.next1 {
+  background-color: black;
+  height: 1973px;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+.next2 {
+  margin-top: -20px;
+  height: 973px;
+  opacity: 1 !important;
+  pointer-events: all;
+  background-color: black;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.early-years {
+  top: 1400px;
+  left: 940px;
+}
+
+.link {
+  position: absolute;
+  color: white;
+  font-size: 50px;
+  text-decoration: underline;
+  cursor: none;
+  pointer-events: all;
+  z-index: 15;
+  top: 1500px;
+  left: 1240px;
+}
+
+.link h2 {
+  pointer-events: all !important;
 }
 /*# sourceMappingURL=index.css.map */
